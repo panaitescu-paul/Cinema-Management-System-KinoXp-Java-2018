@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Update snacks</title>
+    <link rel="stylesheet" href="/stylesheet.css">
+
+</head>
+<body>
+<nav>
+    <ul>
+        <!--<li class="logo">Kino Cinema</li>-->
+        <li class="logo"> <img src="/KinoLogo.png" width="80" height="60"/></li>
+        <li class="back"><a href="/employees/snacksList">Back</a></li>
+    </ul>
+</nav>
+<div class="container">
+    <h1>Update</h1>
+    <form  action = "/employees/updateSnacks" method="post" >
+        <input type="hidden" th:field="${snack.id}" name="id"/>
+        <p>Name: <input type="text" th:field="${snack.name}" name="name"/></p>
+        <p>Price: <input type="text" th:field="${snack.price}" name="price"/></p>
+
+
+        <input type="submit" value="Update" class="button"/>
+    </form>
+</div>
+
+
+</body>
+</html>

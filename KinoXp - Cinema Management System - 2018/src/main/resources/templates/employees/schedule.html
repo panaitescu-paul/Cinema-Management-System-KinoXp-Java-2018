@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="/stylesheet.css">
+    <title>Employee Schedule</title>
+
+</head>
+
+<body>
+
+<nav>
+    <ul>
+        <li class="logo"> <img src="/KinoLogo.png" width="80" height="60"/></li>
+        <li class="navbutton"><a href="/employees/snacksList">Snacks</a></li>
+        <li class="navbutton"><a href="/employees/schedule">Employee Schedule</a></li>
+        <li class="back"><a href="/">Logout</a></li>
+    </ul>
+</nav>
+
+
+<div class="container">
+    <table class="schedule">
+        <thead>
+        <tr>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+            <th>Sunday</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:each="employee,iterStat : ${scheduleList}" th:if="${iterStat.index >= 0 && iterStat.index < 7}">
+                <p>08:00 - 16:00</p>
+                <span th:text="${employee.name}"> </span>
+            </td>
+        </tr>
+        <tr>
+            <td th:each="employee,iterStat : ${scheduleList}" th:if="${iterStat.index >= 7 && iterStat.index < 14}">
+                <span th:text="${employee.name}"> </span>
+            </td>
+        </tr>
+        <tr>
+            <td th:each="employee,iterStat : ${scheduleList}" th:if="${iterStat.index >= 14 && iterStat.index < 21}">
+                <p>16:00 - 24:00</p>
+                <span th:text="${employee.name}"> </span>
+            </td>
+        </tr>
+        <tr>
+            <td th:each="employee,iterStat : ${scheduleList}" th:if="${iterStat.index >= 21 && iterStat.index < 28}">
+                <span th:text="${employee.name}"> </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="/employees/updateSchedule" class="button" align="center">Update Schedule</a>
+</div>
+
+
+
+</body>
+
+</html>

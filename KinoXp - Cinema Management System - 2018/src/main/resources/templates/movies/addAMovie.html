@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add a movie</title>
+    <link rel="stylesheet" href="/stylesheet.css">
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li class="logo"> <img src="/KinoLogo.png" width="80" height="60"/></li>
+        <li class="back"><a href="/employees/employees">Back</a></li>
+        <li class="back"><a href="/">Logout</a></li>  </ul>
+</nav>
+
+<div class="container">
+    <form action="/movies/addAMovie" method="post" >
+        <p>Name: <input type="text" name="name"/></p>
+        <p>Genre: <input type="text" name="genre" /></p>
+        <p>Age Limit: <input type="text" name="ageLimit" /></p>
+        <input class="button" type="submit" value="Add"/>
+
+    </form>
+
+
+</div>
+
+</body>
+</html>

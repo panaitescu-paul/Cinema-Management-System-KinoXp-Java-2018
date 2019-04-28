@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="/stylesheet.css">
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li class="logo"> <img src="/KinoLogo.png" width="80" height="60"/></li>
+        <li class="back"><a href="/employees/snacksList">Back</a></li>
+        <li class="back"><a href="/">Logout</a></li>  </ul>
+</nav>
+
+<div class="container">
+
+    <h1>Add a snack</h1>
+
+
+    <form action="/employees/addSnacks" method="Post" >
+        <p>Name: <input type="text" name="name"/></p>
+        <p>Price: <input type="text" name="price" /></p>
+        <input class="button" type="submit" value="Add"/>
+
+    </form>
+
+</div>
+
+</body>
+</html>

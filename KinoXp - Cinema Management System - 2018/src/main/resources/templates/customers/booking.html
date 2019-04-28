@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Booking Customers Page</title>
+    <link rel="stylesheet" href="/stylesheet.css">
+</head>
+<body>
+
+
+<h2>BOOKING DETAILS</h2>
+
+<p>
+    <input type="hidden" th:value="${movie.id}" name="id"/>
+    <p th:text="'Movie name: ' + ${movie.name} "></p>
+
+
+</p>
+
+    <div th:with="reservation.movieName=${movie.name}">
+
+<h2>CUSTOMER DETAILS</h2>
+
+<form action="booking" method="post">
+    <input type="number" th:value="${movie.id}" name="movieID" id="movieID" hidden>
+
+    <p>Name: <input type="text" name="customerName" /> </p>
+
+    <p>Date: <input type="date" name="date"/> </p>
+
+    <!--<p>Movie time:-->
+        <!--"TODO"-->
+    <!--</p>-->
+
+    <p>
+        Seat:
+        <!--<input type="text" name="reservation.seatNumber">-->
+        <select id="seat" name="seat">
+            <option th:each="seat : ${seats}" th:value="${seat}" th:text="${seat}"></option>
+        </select>
+    </p>
+
+    <p>
+        <input type="submit" value="Book" class="btn btn-create"/>
+    </p>
+
+
+</form>
+
+</body>
+</html>

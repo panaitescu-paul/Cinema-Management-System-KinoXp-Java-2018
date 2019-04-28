@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Available movies</title>
+    <link rel="stylesheet" href="/stylesheet.css">
+
+
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li class="logo"> <img src="/KinoLogo.png" width="80" height="60"/></li>
+        <li class="navbutton"><a href="/employees/snacksList">Snacks</a></li>
+        <li class="navbutton"><a href="/employees/schedule">Employee Schedule</a></li>
+        <li class="back"><a href="/">Logout</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h1> Movies being displayed in the cinema</h1>
+
+    <a class="button" href="/movies/addAMovie">Add new movie </a>
+    <table>
+        <thead>
+        <tr>
+            <th>Ima</th>
+            <th>Name</th>
+            <th>Genre</th>
+            <th>Age limit</th>
+            <th></th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="movie : ${movies}">
+            <td><img th:src="${movie.img_url}" style="max-width:100px; max-height:100px"/></td>
+            <td th:text="${movie.name}"></td>
+            <td th:text="${movie.genre}"> </td>
+            <td th:text="${movie.ageLimit}"> </td>
+
+            <td>
+                <a th:href="@{'/movies/updateMovieList?id='+ ${movie.id}}" class="button">Update</a>
+                <a th:href="@{'/movies/deleteMovie?id='+ ${movie.id}}" class="button button-delete">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

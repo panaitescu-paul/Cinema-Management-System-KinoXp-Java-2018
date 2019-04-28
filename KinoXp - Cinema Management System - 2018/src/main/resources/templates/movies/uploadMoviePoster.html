@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload movie poster</title>
+</head>
+
+<body>
+<h2>Movie title</h2>
+
+<form method="POST" action="/movies/image/upload" enctype="multipart/form-data">
+    <!-- Mandatory hidden field to post the ID -->
+    <input type="number" id="movieID" name="movieID" th:value="${movieID}" hidden>
+    Please select a file to upload : <input type="file" id="image" name="image" accept="image/png"/>
+    <input type="submit" value="Upload" />
+
+
+</form>
+
+</body>
+</html>

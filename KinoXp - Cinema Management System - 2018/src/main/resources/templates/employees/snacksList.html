@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="/stylesheet.css">
+    <title>Snacks</title>
+
+</head>
+<body>
+<nav>
+    <ul>
+        <li class="logo"> <img src="/KinoLogo.png" width="80" height="60"/></li>
+        <li class="back"><a href="/employees/employees">Back</a></li>
+        <li class="back"><a href="/">Logout</a></li></ul>
+</nav>
+<div class="container">
+    <a href="/employees/addSnacks" class="button"> Edit list</a>
+    <table>
+
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="snack : ${snacks}">
+            <td th:text="${snack.name}"></td>
+            <td th:text="${snack.price}"></td>
+            <td>
+                <a th:href="@{'updateSnacks?id='+ ${snack.id}}" class="button">Update</a>
+                <a th:href="@{'deleteSnacks?id='+ ${snack.id}}" class="button button-delete">Delete</a>
+
+        </tr>
+        </tbody>
+
+
+
+        </tr>
+    </table>
+</div>
+</body>
+</html>

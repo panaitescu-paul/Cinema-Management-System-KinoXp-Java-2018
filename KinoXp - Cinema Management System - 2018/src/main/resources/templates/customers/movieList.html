@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="/stylesheet.css">
+    <title>Available movies</title>
+</head>
+<body>
+<nav>
+    <ul>
+        <li class="logo"> <img src="/KinoLogo.png" width="80" height="60"/></li>
+        <li class="back"><a href="/">Back</a></li>
+        <li class="navbutton"><a href="/customers/snacks">See snacks</a></li>
+    </ul>
+</nav>
+<div class="container">
+    <h1> Movies being displayed in the cinema</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Genre</th>
+            <th>Age limit</th>
+            <th></th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="movie : ${movies}">
+            <td><img th:src="${movie.img_url}" style="max-width:100px; max-height:100px"/></td>
+            <td th:text="${movie.name}"></td>
+            <td th:text="${movie.genre}"> </td>
+            <td th:text="${movie.ageLimit}"> </td>
+            <td><a th:href="@{'/booking?id=' + ${movie.id}}"  class="button">Book</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

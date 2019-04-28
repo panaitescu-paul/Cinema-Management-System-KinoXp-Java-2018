@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="/stylesheet.css">
+    <title>Update Schedule</title>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li class="logo"> <img src="/KinoLogo.png" width="80" height="60"/></li>
+        <li class="navbutton"><a href="/employees/snacksList">Snacks</a></li>
+        <li class="navbutton"><a href="/employees/schedule">Employee Schedule</a></li>
+        <li class="back"><a href="/employees/employees">Back</a></li>
+        <li class="back"><a href="/">Logout</a></li>
+    </ul>
+</nav>
+
+
+<div class="container">
+
+    <h1>Update Schedule</h1>
+    <table >
+        <thead>
+        <tr>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+            <th>Sunday</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+            <td th:each="employee,iterStat : ${scheduleList}" th:if="${iterStat.index >= 0 && iterStat.index < 7}">
+                <p>08:00 - 16:00</p>
+                <form  action = "/employees/updateSchedule" th:object="${employee}" method="Post" >
+                    <input type="hidden" th:value="${employee.id}" th:name="id" th:id="id"/>
+                    <input type="text" th:value="${employee.name}" th:name="name" th:id="name"/>
+                    <input type="submit" value="Update" class="button"/>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td th:each="employee,iterStat : ${scheduleList}" th:if="${iterStat.index >= 7 && iterStat.index < 14}">
+                <form  action = "/employees/updateSchedule" th:object="${employee}" method="Post" >
+                    <input type="hidden" th:value="${employee.id}" th:name="id" th:id="id"/>
+                    <input type="text" class="field" th:value="${employee.name}" th:name="name" th:id="name"/>
+                    <input type="submit" value="Update" class="button"/>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td th:each="employee,iterStat : ${scheduleList}" th:if="${iterStat.index >= 14 && iterStat.index < 21}">
+                <p>16:00 - 24:00</p>
+                <form  action = "/employees/updateSchedule" th:object="${employee}" method="Post" >
+                    <input type="hidden" th:value="${employee.id}" th:name="id" th:id="id"/>
+                    <input type="text" th:value="${employee.name}" th:name="name" th:id="name"/>
+                    <input type="submit" value="Update" class="button"/>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td th:each="employee,iterStat : ${scheduleList}" th:if="${iterStat.index >= 21 && iterStat.index < 28}">
+                <form  action = "/employees/updateSchedule" th:object="${employee}" method="Post" >
+                    <input type="hidden" th:value="${employee.id}" th:name="id" th:id="id"/>
+                    <input type="text" class="field" th:value="${employee.name}" th:name="name" th:id="name"/>
+                    <input type="submit" value="Update" class="button" />
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>
