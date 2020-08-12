@@ -1,1 +1,1 @@
-# Cinema-Management-System-KinoXp-Java-2018
+# Cinema Management System - KinoXp - Java - 2018
